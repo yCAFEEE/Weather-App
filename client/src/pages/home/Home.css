@@ -1,12 +1,25 @@
+header{
+    width: calc(100vw - 40px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(6, 6, 80);
+    padding: 20px;
+}
+
+header h1{
+    color: #FFFFFF;
+}
+
 #search-form{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 10px;
     align-items: center;
 }
 
 #search-form button{
-    width: 60%;
     padding: 10px;
 }
 

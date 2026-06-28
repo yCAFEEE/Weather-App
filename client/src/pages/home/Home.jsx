@@ -43,16 +43,19 @@ export default function Home(){
 
   return (
     <>
-      <form onSubmit={handleSubmit} id='search-form'>
-        <input
-          id='city-name'
-          type='text' 
-          placeholder='City name...'
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        />
-        <button type='submit'>Get weather</button>
-      </form>
+      <header>
+        <h1>WeatherApp</h1>
+        <form onSubmit={handleSubmit} id='search-form'>
+          <input
+            id='city-name'
+            type='text' 
+            placeholder='City name...'
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+          <button type='submit'>Get weather</button>
+        </form>
+      </header>
       
       {weather && (
         <div className='weather-container'>
