@@ -4,12 +4,12 @@ header{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(6, 6, 80);
+    background-color: var(--deep-blue);
     padding: 20px;
 }
 
 header h1{
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 #search-form{
@@ -56,6 +56,6 @@ main{
 .weather-overview-container p{
     padding: 10px;
     margin: 2px;
-    background-color: #e5e5e5;
-    border-radius: 5px;
+    border: solid 2px var(--gray-hint);
+    border-radius: 10px;
 }
