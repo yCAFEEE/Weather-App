@@ -110,7 +110,6 @@ main{
 .weather-overview-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    min-height: 20vh;
 }
 
 .weather-overview-container p{
@@ -118,4 +117,15 @@ main{
     margin: 2px;
     border: solid 2px var(--gray-hint);
     border-radius: 10px;
+    min-height: 10vh;
+}
+
+@media (max-width: 768px){
+    header{
+        flex-direction: column;
+    }
+
+    .weather-overview-container{
+        grid-template-columns: 1fr 1fr;
+    }
 }
