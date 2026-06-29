@@ -5,6 +5,8 @@
   --tangerine: rgb(255, 150, 50);
   --light-sky-blue: rgb(150, 190, 255);
   --deep-blue: rgb(6, 6, 80);
+  --black: rgb(0, 0, 0);
+  --graphite: rgb(30, 30, 30);
   --light-gray: rgb(180, 180, 180);
   --gray-hint: rgb(229, 229, 229);
   --white: rgb(255, 255, 255);
@@ -25,6 +27,8 @@
 body{
   min-height: 100vh;
   font-family: 'Roboto', sans-serif;
+  background-color: var(--white);
+  color: var(--black);
 }
 
 h1, h2, h3{
@@ -33,4 +37,11 @@ h1, h2, h3{
 
 button{
   cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+  body{
+    background-color: var(--graphite);
+    color: var(--white);
+  }
 }
