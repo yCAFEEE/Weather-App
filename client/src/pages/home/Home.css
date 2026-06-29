@@ -8,8 +8,17 @@ header{
     padding: 20px;
 }
 
-header h1{
-    color: var(--white);
+.text-logo{
+    display: flex;
+    flex-direction: row;
+}
+
+#weather{
+    color: var(--light-sky-blue);
+}
+
+#app{
+    color: var(--tangerine);
 }
 
 #search-form{

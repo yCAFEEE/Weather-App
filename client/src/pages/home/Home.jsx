@@ -52,7 +52,10 @@ export default function Home(){
   return (
     <>
       <header>
-        <h1>WeatherApp</h1>
+        <div className='text-logo'>
+          <h1 id='weather'>Weather</h1>
+          <h1 id='app'>App</h1>
+        </div>
         <form onSubmit={handleSubmit} id='search-form'>
           <input
             id='city-name'
