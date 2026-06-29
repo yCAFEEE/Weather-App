@@ -15,9 +15,9 @@ def getWeather(request):
 
     if request.method == "POST":
         city = request.POST.get("city", '').strip()
-
+        units = request.POST.get("units", 'metric').strip().lower()
         if city:
-            url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+            url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units={units}"
             try:
                 resp = requests.get(url, timeout = 5)
                 data = resp.json()

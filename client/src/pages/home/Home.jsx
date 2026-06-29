@@ -1,13 +1,14 @@
-import { useState } from 'react'
-import './Home.css'
+import { useState, useEffect } from 'react';
+import './Home.css';
 
 export default function Home(){
   const [city, setCity] = useState('');
+  const [units, setUnits] = useState('metric');
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
 
   const handleSubmit = async(e) => {
-    e.preventDefault();
+    if(e) e.preventDefault();
 
     try{
       const response = await fetch("http://127.0.0.1:8000/", {
@@ -16,7 +17,7 @@ export default function Home(){
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: new URLSearchParams({ city }),
+        body: new URLSearchParams({ city, units }),
       });
       const data = await response.json();
 
@@ -33,6 +34,12 @@ export default function Home(){
       setWeather(null)
     }
   };
+
+  useEffect(() => {
+    if(weather){ 
+      handleSubmit();
+    }
+  }, [units]);
   
   let localTime;
   if(weather){
@@ -41,6 +48,7 @@ export default function Home(){
     var localMinutes = String(localTime.getUTCMinutes()).padStart(2, '0');
   }
 
+  const tempSymbol = units === "metric" ? "C°" : "F°";
   return (
     <>
       <header>
@@ -58,12 +66,17 @@ export default function Home(){
       </header>
       
       <main>
+        
         {weather && (
           <div className='weather-container'>
+            <div className="units-toggle">
+              <button type="button" className={units === 'metric' ? 'active' : ''} onClick={() => setUnits('metric')}>°C</button>
+              <button type="button" className={units === 'imperial' ? 'active' : ''}  onClick={() => setUnits('imperial')}>°F</button>
+            </div>
             <h1>{weather.city}</h1>
             <div className='temp-container'>
               <img src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt="Weather icon" />
-              <h1>{weather.temperature} °C</h1>
+              <h1>{weather.temperature} {tempSymbol}</h1>
             </div>
             <div className='desc-container'>
               <h2>{weather.description}</h2>
@@ -71,12 +84,12 @@ export default function Home(){
             <h2>Local time: {localHours + ":" + localMinutes}</h2>
             <div className='weather-overview-container'>
               <p>Humidity: {weather.humidity}%</p>
-              <p>Feel: {weather.feelsLike} °C</p>
-              <p>Min. temperature: {weather.tempMin} °C</p>
-              <p>Max temperature: {weather.tempMax} °C</p>
-              <p>Pressure: {weather.pressure}</p>
-              {weather.visibility && <p>Visibility: {weather.visibility / 1000}km</p>}
-              <p>Wind speed: {(weather.windSpeed * 3.6).toFixed(2)}km/h</p>
+              <p>Feel: {weather.feelsLike} {tempSymbol}</p>
+              <p>Min. temperature: {weather.tempMin} {tempSymbol}</p>
+              <p>Max temperature: {weather.tempMax} {tempSymbol}</p>
+              <p>Pressure: {weather.pressure} hPa</p>
+              {weather.visibility && <p>Visibility: {units === "metric" ? `${weather.visibility / 1000} km` : `${((weather.visibility / 1000) / 1.609).toFixed(2)} mi`}</p>}
+              <p>Wind speed: {units === "metric" ? `${(weather.windSpeed * 3.6).toFixed(2)} km/h` : `${weather.windSpeed} mph`}</p>
             </div>
           </div>
         )}
