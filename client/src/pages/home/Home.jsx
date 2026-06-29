@@ -70,8 +70,8 @@ export default function Home(){
         {weather && (
           <div className='weather-container'>
             <div className="units-toggle">
-              <button type="button" className={units === 'metric' ? 'active' : ''} onClick={() => setUnits('metric')}>°C</button>
-              <button type="button" className={units === 'imperial' ? 'active' : ''}  onClick={() => setUnits('imperial')}>°F</button>
+              <button className={units === 'metric' ? 'active' : ''} onClick={() => setUnits('metric')}>C°</button>
+              <button className={units === 'imperial' ? 'active' : ''}  onClick={() => setUnits('imperial')}>F°</button>
             </div>
             <h1>{weather.city}</h1>
             <div className='temp-container'>
