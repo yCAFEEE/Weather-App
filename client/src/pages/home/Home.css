@@ -26,14 +26,32 @@ header{
     flex-direction: row;
     padding: 10px;
     align-items: center;
-}
-
-#search-form button{
-    padding: 10px;
+    gap: 5px;
 }
 
 form #city-name{
     padding: 10px;
+    background: none;
+    color: var(--white);
+    border: solid 2px var(--white);
+    border-radius: 10px;
+}
+
+form #city-name::placeholder{
+    color: var(--light-gray);
+}
+
+#search-form button{
+    padding: 10px;
+    background-color: var(--gray-hint);
+    border: none;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+#search-form button:hover{
+    background-color: var(--light-sky-blue);
+    color: var(--white);
 }
 
 main{
