@@ -61,6 +61,7 @@ main{
     justify-content: center;
     align-items: center;
     padding: 20px;
+    flex: 1;
 }
 
 .units-toggle{
@@ -118,6 +119,14 @@ main{
     border: solid 2px var(--gray-hint);
     border-radius: 10px;
     min-height: 10vh;
+}
+
+.footer-container{
+    margin: 10px;
+}
+
+.footer-container a{
+    color: var(--light-sky-blue);
 }
 
 @media (max-width: 768px){

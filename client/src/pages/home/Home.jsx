@@ -69,7 +69,6 @@ export default function Home(){
       </header>
       
       <main>
-        
         {weather && (
           <div className='weather-container'>
             <div className="units-toggle">
@@ -101,6 +100,12 @@ export default function Home(){
           <h2>{error}</h2>
         )}
       </main>
+
+      <footer>
+        <div className='footer-container'>
+          <p>Developed by <a href='https://github.com/yCAFEEE'>yCAFEEE</a> (Yuri Daniel).</p>
+        </div>
+      </footer>
     </>
   )
 }
