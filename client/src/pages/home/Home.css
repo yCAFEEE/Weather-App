@@ -58,7 +58,6 @@ main{
     min-width: 30vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 20px;
     flex: 1;
