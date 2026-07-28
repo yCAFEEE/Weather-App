@@ -7,6 +7,24 @@ export default function Home(){
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
 
+  const [theme, setTheme] = useState (() =>{
+    const savedTheme = localStorage.getItem('theme');
+
+    if(savedTheme) return savedTheme;
+
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+
+    if(theme === 'dark') root.classList.add('dark');
+    else root.classList.remove('dark');
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => { setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light')) }
+  
   const handleSubmit = async(e) => {
     if(e) e.preventDefault();
 
@@ -56,6 +74,9 @@ export default function Home(){
           <h1 id='weather'>Weather</h1>
           <h1 id='app'>App</h1>
         </div>
+
+        <button onClick={toggleTheme}>{theme === 'light' ? '🌙' : '☀️'}</button>
+        
         <form onSubmit={handleSubmit} id='search-form'>
           <input
             id='city-name'

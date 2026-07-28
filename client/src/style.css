@@ -29,6 +29,7 @@ body{
   font-family: 'Roboto', sans-serif;
   background-color: var(--white);
   color: var(--black);
+  transition: 0.5s;
 }
 
 h1, h2, h3{
@@ -39,9 +40,7 @@ button{
   cursor: pointer;
 }
 
-@media (prefers-color-scheme: dark) {
-  body{
-    background-color: var(--graphite);
-    color: var(--white);
-  }
+html.dark body{
+  background-color: var(--graphite);
+  color: var(--white);
 }
