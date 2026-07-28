@@ -75,7 +75,7 @@ export default function Home(){
           <h1 id='app'>App</h1>
         </div>
 
-        <button onClick={toggleTheme}>{theme === 'light' ? '🌙' : '☀️'}</button>
+        <button onClick={toggleTheme} id='toggle-theme-button'>{theme === 'light' ? '🌙' : '☀️'}</button>
         
         <form onSubmit={handleSubmit} id='search-form'>
           <input

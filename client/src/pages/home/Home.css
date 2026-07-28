@@ -21,6 +21,17 @@ header{
     color: var(--tangerine);
 }
 
+#toggle-theme-button{
+    font-size: 30px;
+    background: transparent;
+    border: none;
+    transition: 0.2s ease;
+}
+
+#toggle-theme-button:hover{
+    transform: scale(1.1);
+}
+
 #search-form{
     display: flex;
     flex-direction: row;
