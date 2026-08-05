@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import './Home.css';
 
+const API = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/';
+
 export default function Home(){
   const [city, setCity] = useState('');
   const [units, setUnits] = useState('metric');
@@ -29,7 +31,7 @@ export default function Home(){
     if(e) e.preventDefault();
 
     try{
-      const response = await fetch("http://127.0.0.1:8000/", {
+      const response = await fetch(API, {
         method: 'POST',
         mode: 'cors',
         headers: {
