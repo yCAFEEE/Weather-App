@@ -39,20 +39,6 @@ def getWeather(request):
                         'icon': data['weather'][0]['icon'],
                     }
 
-                    WeatherInfo.objects.create(
-                        cityName = data['name'],
-                        temperature = data['main']['temp'],
-                        humidity = data['main']['humidity'],
-                        feelsLike = data['main']['feels_like'],
-                        tempMin = data['main']['temp_min'],
-                        tempMax = data['main']['temp_max'],
-                        pressure = data['main']['pressure'],
-                        visibility = data.get('visibility'),
-                        windSpeed = data['wind']['speed'],
-                        dt = data['dt'],
-                        timezone = data['timezone'],
-                        description = data['weather'][0]['description'].title()
-                    )
                     return JsonResponse({'weather': weather})
                 else:
                     return JsonResponse({'error': data.get("message", 'Could not fetch weather data')}, status = 404)
