@@ -10,9 +10,15 @@ npm (10.8.2 or higher)
 node (20.19.5 or higher)
 python (3.12.3 or higher)
 django (4.2.11 or higher)
+django-cors-headers (4.9.0 or higher)
+djangorestframework (3.16.1 or higher)
+python-dotenv (1.2.2 or higher)
+requests (2.31.0 or higher)
 ```
 
 To install the **frontend** dependencies, navigate to `client/` directory and run `npm install` command in the terminal.
+
+To install the pip **backend** dependencies, navigate to `server/` directory and run `pip install -r requirements.txt` command in the terminal.
 
 ### Usage
 To start the **server**, navigate to `server/` directory and execute the command `python manage.py runserver` in the terminal or cmd. \
