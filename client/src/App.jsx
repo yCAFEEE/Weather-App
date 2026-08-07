@@ -4,7 +4,7 @@ import Home from "./pages/home/Home.jsx"
 
 function App() {
   return(
-    <Router basename="/Weather-App">
+    <Router basename="/weather-app">
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
